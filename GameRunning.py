@@ -8,6 +8,7 @@ from PrintingCard import PrintingHumanCard, PrintingComputersCard
 # для запроса кол-ва игроков
 players_count = PlayersCondition().asking_players()
 
+
 # создаем листы, содержащие карточки для игры в лото
 # для игроков людей и игроков компьютеров
 human_players_cards = PlayersCondition().create_cards_for_human(players_count[0])
