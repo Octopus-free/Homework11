@@ -4,6 +4,18 @@ from CardAndHandful import CardGeneration
 # создаем класс для запросов кол-ва игроков и формирования карточек для них
 class PlayersCondition:
 
+    # переопределяем метод __str__
+    def __str__(self):
+        return 'Класс для запроса кол-ва играющих'
+
+    # переопределяем метод __eq__
+    def __eq__(self, other):
+        return len(self.create_cards_for_human()) == len(other.create_cards_for_human())
+
+    # переопределяем метод __ne__
+    def __ne__(self, other):
+        return self.create_cards_for_computers() != other.create_cards_for_computers()
+
     # создаем фунцкцию для генерации карточек игроков (людей)
     def create_cards_for_human(self, players_count):
         # создаем пустой лист для дальнейшего хранения карточек играющих людей
