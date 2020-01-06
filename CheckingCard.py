@@ -4,6 +4,18 @@ from re import findall
 
 class CheckingCard:
 
+    # переопределяем метод __str__
+    def __str__(self):
+        return 'Класс для проверки карточек игроков'
+
+    # переопределяем метод __eq__
+    def __eq__(self, other):
+        return self.check_human_players() == other.check_human_players()
+
+    # переопределяем метод __ne__
+    def __ne__(self, other):
+        return self.check_human_players() != other.check_human_players()
+
     # функция для проверки всех зачеркнутых числе на карточке игрока человека
     def check_human_players(self, human_players_cards):
 

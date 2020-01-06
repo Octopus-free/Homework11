@@ -18,6 +18,10 @@ class PrintingHumanCard:
     def __ne__(self, other):
         return self.print_human_card() != other.print_human_card()
 
+    # переопределяем метод __getattr__
+    def __getattr__(self, name):
+        return f'Класс не содержит атрибута {name}!'
+
     # функция для отрисовки карточек игроков людей
     def print_human_card(self):
 
@@ -44,6 +48,10 @@ class PrintingComputersCard:
     # переопределяем метод __ne__
     def __ne__(self, other):
         return self.print_computers_cards() != other.print_computers_cards()
+
+    # переопределяем метод __getattr__
+    def __getattr__(self, name):
+        return f'Класс не содержит атрибута {name}!'
 
     # функция для отрисовки карточек игроков компьютеров
     def print_computers_cards(self):

@@ -8,6 +8,7 @@ class TestCheck(unittest.TestCase):
     # создаем функцию для избежания дублирования кода в каждой тестовой функции
     def setUp(self):
         self.card = CheckingCard()
+        self.card_for_eq = CheckingCard()
         self.zero_card = ['--', '--']
         self.full_card = [' 8 ', '11']
         self.full_card_over10 = [' 10', '11']
@@ -26,6 +27,19 @@ class TestCheck(unittest.TestCase):
         self.strike_lose_message = 'Игрок 1 проиграл, необходимо было зачеркнуть число, выпавшее на бочонке!'
         self.barrel_number_under10 = 8
         self.barrel_number = 10
+        self.test_message = 'Класс для проверки карточек игроков'
+
+    # создаем функцию для теста __str__
+    def test__str__(self):
+        self.assertEqual(str(self.card), self.test_message)
+
+    # создаем функцию для теста __eq__
+    def test__eq__(self):
+        self.assertEqual(self.card.check_human_players(['--']), self.card_for_eq.check_human_players(['--']))
+
+    # создаем функцию для теста __ne__
+    def test__ne__(self):
+        self.assertEqual(self.card.check_human_players(['--']), self.card_for_eq.check_human_players(['--', '11']))
 
     def test_human_card_for_win(self):
 

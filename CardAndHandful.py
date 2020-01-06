@@ -7,6 +7,18 @@ class HandfulGeneration:
     def __init__(self):
         self.handful = []
 
+    # переопределяем метод __str__
+    def __str__(self):
+        return 'Создан пустой мешок для бочонков'
+
+    # переопределяем метод __eq__
+    def __eq__(self, other):
+        return len(self.create()) == len(other.create())
+
+    # переопределяем метод __ne__
+    def __ne__(self, other):
+        return self.create() != other.create()
+
     # функция для заполнения мешка бочонками со значениями от 0 до 91
     def create(self):
         for number_from_handful in range(0, 91):
@@ -18,6 +30,18 @@ class HandfulGame:
 
     def __init__(self):
         self.sack_for_game = HandfulGeneration().create()
+
+    # переопределяем метод __str__
+    def __str__(self):
+        return 'Мешок для бочонков наполнен!'
+
+    # переопределяем метод __eq__
+    def __eq__(self, other):
+        return len(self.sack_for_game) == len(other.sack_for_game)
+
+    # переопределяем метод __ne__
+    def __ne__(self, other):
+        return self.handful_using() != other.handful_using()
 
     def handful_using(self):
         barrel = sample(self.sack_for_game, 1)[0]
@@ -32,6 +56,18 @@ class CardGeneration:
     def __init__(self):
         self.sack = HandfulGeneration().create()
         self.three_row_card = ''
+
+    # переопределяем метод __str__
+    def __str__(self):
+        return 'Мешок для бочонков наполнен, можно наполнять карточки'
+
+    # переопределяем метод __eq__
+    def __eq__(self, other):
+        return len(self.sack) == len(other.sack)
+
+    # переопределяем метод __ne__
+    def __ne__(self, other):
+        return self.create_card() != other.create_card()
 
     def create_card(self):
 
